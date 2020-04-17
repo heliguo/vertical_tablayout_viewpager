@@ -29,4 +29,5 @@ public abstract class TabView extends FrameLayout implements Checkable, ITabView
     public abstract TextView getTitleView();
 
     public abstract Badge getBadgeView();
+
 }
