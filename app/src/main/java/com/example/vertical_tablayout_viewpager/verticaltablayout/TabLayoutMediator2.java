@@ -240,6 +240,9 @@ public class TabLayoutMediator2 {
         }
     }
 
+    /**
+     * 监听数据变化
+     */
     private class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
 
         @Override
