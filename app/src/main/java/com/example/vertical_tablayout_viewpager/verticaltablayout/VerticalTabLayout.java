@@ -21,14 +21,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.vertical_tablayout_viewpager.R;
+import com.example.vertical_tablayout_viewpager.utils.DisplayUtil;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.adapter.TabAdapter;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.QTabView;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.TabView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import q.rorbin.badgeview.DisplayUtil;
 
 import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_IDLE;
 import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_SETTLING;
