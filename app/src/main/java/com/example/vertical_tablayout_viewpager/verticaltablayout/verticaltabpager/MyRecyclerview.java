@@ -2,7 +2,6 @@ package com.example.vertical_tablayout_viewpager.verticaltablayout.verticaltabpa
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class MyRecyclerview extends RecyclerView {
 
-    private int mDy;
+    private int startY;
 
     public MyRecyclerview(@NonNull Context context) {
         this(context, null);
@@ -28,32 +27,36 @@ public class MyRecyclerview extends RecyclerView {
         super(context, attrs, defStyleAttr);
     }
 
-
+    /**
+     * 内部拦截
+     * 1、dispatchTouchEvent
+     * 2、OnInterruptTouchEvent
+     * 3、OnTouchEvent
+     *
+     * @param ev 动作事件
+     * @return true 拦截  false 不拦截
+     */
     @Override
-    public boolean onTouchEvent(MotionEvent e) {
-        Log.e("touch", "onTouchEvent: " );
+    public boolean dispatchTouchEvent(MotionEvent ev) {
         getParent().requestDisallowInterceptTouchEvent(true);
-        switch (e.getAction()) {
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (!canScrollVertically(1) && mDy > 0) {//不可下滑且下滑
-                    getParent().requestDisallowInterceptTouchEvent(false);
-                }
-                if (!canScrollVertically(-1) && mDy < 0) {//不可上滑且上滑
-                    getParent().requestDisallowInterceptTouchEvent(false);
-                }
+                startY = ((int) ev.getY());
                 break;
             case MotionEvent.ACTION_MOVE:
+                int current = ((int) ev.getY());
+                int offset = current - startY;
 
+                if (!canScrollVertically(1) && offset < 0) {//不可下滑且下滑
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                }
+                if (!canScrollVertically(-1) && offset > 0) {//不可上滑且上滑
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                }
                 break;
         }
-        return super.onTouchEvent(e);
+        return super.dispatchTouchEvent(ev);
     }
 
-    @Override
-    public void onScrolled(int dx, int dy) {
-        mDy = dy;
-        Log.e("scroll", "onScrolled: " );
-        super.onScrolled(dx, dy);
-    }
 
 }

@@ -1,4 +1,4 @@
-package com.example.vertical_tablayout_viewpager.verticaltablayout.verticaltabpager;
+package com.example.vertical_tablayout_viewpager.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
