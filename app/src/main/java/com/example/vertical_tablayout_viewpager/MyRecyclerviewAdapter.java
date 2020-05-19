@@ -1,6 +1,5 @@
 package com.example.vertical_tablayout_viewpager;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,11 +28,11 @@ public class MyRecyclerviewAdapter extends RecyclerView.Adapter<MyRecyclerviewAd
     @Override
     public void onBindViewHolder(@NonNull PagerViewHolder holder, int position) {
 
-        holder.mTextView.setText(String.format("第%d页,第%d项",page,position));
+        holder.mTextView.setText(String.format("第%d页,第%d项", page, position));
 
     }
 
-    public void setPage(int page){
+    public void setPage(int page) {
         this.page = page;
     }
 
