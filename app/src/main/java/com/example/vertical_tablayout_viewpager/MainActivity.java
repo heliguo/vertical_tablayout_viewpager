@@ -13,9 +13,9 @@ import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.TabView
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager2 mViewPager2;
-    VerticalTabLayout mVerticalTabLayout;
-    MyPagerAdapter mAdapter;
+    ViewPager2         mViewPager2;
+    VerticalTabLayout  mVerticalTabLayout;
+    MyPagerAdapter     mAdapter;
     TabLayoutMediator2 mMediator2;
 
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onConfigureTab(@NonNull TabView tab, int position) {
                         ITabView.TabTitle.Builder builder = new ITabView.TabTitle.Builder();
-                        builder.setContent(String.valueOf(position));
+                        builder.setContent(String.format("第%d页", (position + 1)));
                         tab.setTitle(builder.build());
                     }
                 });
