@@ -2,7 +2,6 @@ package com.example.vertical_tablayout_viewpager.verticaltablayout.verticaltabpa
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyRecyclerview extends RecyclerView {
 
     private int startY;
-    private int mVelocityY;
 
     public MyRecyclerview(@NonNull Context context) {
         this(context, null);
@@ -44,42 +42,22 @@ public class MyRecyclerview extends RecyclerView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 getParent().requestDisallowInterceptTouchEvent(true);
-                if (getScrollState() == SCROLL_STATE_IDLE) {
-                    mVelocityY = 0;
-                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 int offset = y - startY;
-                Log.e("TAG", "dispatchTouchEvent: " + mVelocityY);
                 if (!canScrollVertically(1) && offset < 0 &&
-                        Math.abs(mVelocityY) < 8000) {//不可下滑且下滑
+                        getScrollState() == SCROLL_STATE_IDLE) {//不可下滑且下滑
                     getParent().requestDisallowInterceptTouchEvent(false);
                 }
                 if (!canScrollVertically(-1) && offset > 0 &&
-                        Math.abs(mVelocityY) < 8000) {//不可上滑且上滑,
+                        getScrollState() == SCROLL_STATE_IDLE) {//不可上滑且上滑,
                     getParent().requestDisallowInterceptTouchEvent(false);
                 }
                 break;
-            case MotionEvent.ACTION_UP:
-                getParent().requestDisallowInterceptTouchEvent(true);
-                break;
         }
+
         startY = y;
         return super.dispatchTouchEvent(ev);
     }
-
-    /**
-     * 滑动速度大于8000
-     *
-     * @param velocityX x
-     * @param velocityY y
-     * @return boolean
-     */
-    @Override
-    public boolean fling(int velocityX, int velocityY) {
-        this.mVelocityY = velocityY;
-        return super.fling(velocityX, velocityY);
-    }
-
 
 }
