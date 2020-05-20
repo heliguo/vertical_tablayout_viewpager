@@ -43,11 +43,14 @@ public class MyRecyclerview extends RecyclerView {
         int y = (int) ev.getY();
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mVelocityY = 0;
                 getParent().requestDisallowInterceptTouchEvent(true);
+                if (getScrollState() == SCROLL_STATE_IDLE) {
+                    mVelocityY = 0;
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 int offset = y - startY;
+                Log.e("TAG", "dispatchTouchEvent: " + mVelocityY);
                 if (!canScrollVertically(1) && offset < 0 &&
                         Math.abs(mVelocityY) < 8000) {//不可下滑且下滑
                     getParent().requestDisallowInterceptTouchEvent(false);
@@ -57,6 +60,9 @@ public class MyRecyclerview extends RecyclerView {
                     getParent().requestDisallowInterceptTouchEvent(false);
                 }
                 break;
+            case MotionEvent.ACTION_UP:
+                getParent().requestDisallowInterceptTouchEvent(true);
+                break;
         }
         startY = y;
         return super.dispatchTouchEvent(ev);
@@ -65,9 +71,9 @@ public class MyRecyclerview extends RecyclerView {
     /**
      * 滑动速度大于8000
      *
-     * @param velocityX
-     * @param velocityY
-     * @return
+     * @param velocityX x
+     * @param velocityY y
+     * @return boolean
      */
     @Override
     public boolean fling(int velocityX, int velocityY) {

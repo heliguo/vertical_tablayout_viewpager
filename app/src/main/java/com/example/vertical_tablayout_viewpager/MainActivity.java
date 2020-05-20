@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2         mViewPager2;
     VerticalTabLayout  mVerticalTabLayout;
     MyPagerAdapter     mAdapter;
+    MyPagerAdapter2    mAdapter2;
     TabLayoutMediator2 mMediator2;
 
     @Override
@@ -25,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         mVerticalTabLayout = findViewById(R.id.vertical_tablayout);
         mViewPager2 = findViewById(R.id.vertical_viewpager2);
         mAdapter = new MyPagerAdapter();
+        mAdapter2 = new MyPagerAdapter2();
         mViewPager2.setAdapter(mAdapter);
+//        mViewPager2.setAdapter(mAdapter2);
         mViewPager2.setOffscreenPageLimit(1);
         mMediator2 = new TabLayoutMediator2(mVerticalTabLayout, mViewPager2,
                 new TabLayoutMediator2.TabConfigurationStrategy() {
