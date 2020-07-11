@@ -1,4 +1,4 @@
-package com.example.vertical_tablayout_viewpager.verticaltablayout.verticaltabpager;
+package com.example.vertical_tablayout_viewpager.verticaltablayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -38,6 +38,7 @@ public class MyRecyclerview extends RecyclerView {
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+
         int y = (int) ev.getY();
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:

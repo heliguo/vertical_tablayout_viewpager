@@ -5,7 +5,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.example.vertical_tablayout_viewpager.verticaltablayout.verticaltabpager.MyRecyclerview
+    <com.example.vertical_tablayout_viewpager.verticaltablayout.MyRecyclerview
         android:id="@+id/pager_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

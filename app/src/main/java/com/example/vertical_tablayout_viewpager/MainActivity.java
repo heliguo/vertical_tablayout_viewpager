@@ -6,17 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.vertical_tablayout_viewpager.verticaltablayout.MyPagerAdapter;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.TabLayoutMediator2;
-import com.example.vertical_tablayout_viewpager.verticaltablayout.VerticalTabLayout;
-import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.ITabView;
-import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.TabView;
+
+import q.rorbin.verticaltablayout.VerticalTabLayout;
+import q.rorbin.verticaltablayout.widget.ITabView;
+import q.rorbin.verticaltablayout.widget.TabView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager2         mViewPager2;
-    VerticalTabLayout  mVerticalTabLayout;
-    MyPagerAdapter     mAdapter;
-    MyPagerAdapter2    mAdapter2;
+    ViewPager2 mViewPager2;
+    VerticalTabLayout mVerticalTabLayout;
+    MyPagerAdapter mAdapter;
     TabLayoutMediator2 mMediator2;
 
     @Override
@@ -26,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
         mVerticalTabLayout = findViewById(R.id.vertical_tablayout);
         mViewPager2 = findViewById(R.id.vertical_viewpager2);
         mAdapter = new MyPagerAdapter();
-        mAdapter2 = new MyPagerAdapter2();
         mViewPager2.setAdapter(mAdapter);
-//        mViewPager2.setAdapter(mAdapter2);
         mViewPager2.setOffscreenPageLimit(1);
         mMediator2 = new TabLayoutMediator2(mVerticalTabLayout, mViewPager2,
                 new TabLayoutMediator2.TabConfigurationStrategy() {

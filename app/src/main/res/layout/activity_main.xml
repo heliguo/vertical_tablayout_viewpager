@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <com.example.vertical_tablayout_viewpager.verticaltablayout.VerticalTabLayout
+    <q.rorbin.verticaltablayout.VerticalTabLayout
         android:id="@+id/vertical_tablayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

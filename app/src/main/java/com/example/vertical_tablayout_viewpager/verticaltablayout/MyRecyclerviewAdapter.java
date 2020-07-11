@@ -1,4 +1,4 @@
-package com.example.vertical_tablayout_viewpager;
+package com.example.vertical_tablayout_viewpager.verticaltablayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.vertical_tablayout_viewpager.R;
 
 /**
  * @author lgh on 2020/5/19 16:56
@@ -41,7 +43,7 @@ public class MyRecyclerviewAdapter extends RecyclerView.Adapter<MyRecyclerviewAd
         return 100;
     }
 
-    class PagerViewHolder extends RecyclerView.ViewHolder {
+    static class PagerViewHolder extends RecyclerView.ViewHolder {
 
         TextView mTextView;
 

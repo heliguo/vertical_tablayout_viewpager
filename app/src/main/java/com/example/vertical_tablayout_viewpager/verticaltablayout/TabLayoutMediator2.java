@@ -5,11 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.QTabView;
-import com.example.vertical_tablayout_viewpager.verticaltablayout.widget.TabView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.ref.WeakReference;
+
+import q.rorbin.verticaltablayout.VerticalTabLayout;
+import q.rorbin.verticaltablayout.widget.QTabView;
+import q.rorbin.verticaltablayout.widget.TabView;
 
 /**
  * author:lgh on 2020-04-17 14:48
@@ -158,49 +160,17 @@ public class TabLayoutMediator2 {
     private static class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         @NonNull
         private final WeakReference<VerticalTabLayout> tabLayoutRef;
-//        private int previousScrollState;
-//        private int scrollState;
 
         TabLayoutOnPageChangeCallback(VerticalTabLayout tabLayout) {
             tabLayoutRef = new WeakReference<>(tabLayout);
-//            reset();
         }
 
         @Override
         public void onPageScrollStateChanged(final int state) {
-//            previousScrollState = scrollState;
-//            scrollState = state;
         }
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//            VerticalTabLayout tabLayout = tabLayoutRef.get();
-//            Log.e("count", "onPageScrolled: " + tabLayout.getTabCount());
-//            Log.e("positionOffset", "onPageScrolled: " + positionOffset);
-//
-//            if (tabLayout != null) {
-//                // Only update the text selection if we're not settling, or we are settling after
-//                // being dragged
-//                boolean updateText =
-//                        scrollState != SCROLL_STATE_SETTLING ||
-//                                previousScrollState == SCROLL_STATE_DRAGGING;
-//                // Update the indicator if we're not settling after being idle. This is caused
-//                // from a setCurrentItem() call and will be handled by an animation from
-//                // onPageSelected() instead.
-//                boolean updateIndicator =
-//                        !(scrollState == SCROLL_STATE_SETTLING &&
-//                                previousScrollState == SCROLL_STATE_IDLE);
-//                if (scrollState == SCROLL_STATE_SETTLING) {
-//                    if (positionOffset > 0.5 && position != 0 && positionOffsetPixels > 100) {
-//                        tabLayout.setTabSelected(position - 1, updateIndicator, updateText);
-//                    }
-//                    if (positionOffset < 0.5 && position != tabLayout.getTabCount() - 1 && positionOffsetPixels > 100) {
-//                        tabLayout.setTabSelected(position + 1, updateIndicator, updateText);
-//
-//                    }
-//                }
-//
-//            }
         }
 
         @Override
@@ -213,9 +183,6 @@ public class TabLayoutMediator2 {
             }
         }
 
-//        void reset() {
-//            previousScrollState = scrollState = SCROLL_STATE_IDLE;
-//        }
     }
 
     /**
