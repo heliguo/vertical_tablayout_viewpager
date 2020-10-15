@@ -58,6 +58,7 @@ public class MyPagerAdapter extends RecyclerView.Adapter<MyPagerAdapter.MyHolder
             super(itemView);
             //若ViewHolder不存在复用的情况，该写法与在onBindViewHolder创建没区别
             //在onBindViewHolder调用次数多（存在ViewHolder复用）的情况下使用效果明显
+            //参考：https://www.jianshu.com/p/52791ac320f6
             mRecyclerView = itemView.findViewById(R.id.pager_rv);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(itemView.getContext());
             //            linearLayoutManager.setRecycleChildrenOnDetach(true);

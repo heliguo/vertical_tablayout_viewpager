@@ -9,6 +9,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.MyPagerAdapter;
 import com.example.vertical_tablayout_viewpager.verticaltablayout.TabLayoutMediator2;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import q.rorbin.verticaltablayout.VerticalTabLayout;
 import q.rorbin.verticaltablayout.widget.ITabView;
 import q.rorbin.verticaltablayout.widget.TabView;
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     VerticalTabLayout mVerticalTabLayout;
     MyPagerAdapter mAdapter;
     TabLayoutMediator2 mMediator2;
+    AtomicInteger mAtomicInteger;
+    ExecutorService mService = Executors.newScheduledThreadPool(5);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
