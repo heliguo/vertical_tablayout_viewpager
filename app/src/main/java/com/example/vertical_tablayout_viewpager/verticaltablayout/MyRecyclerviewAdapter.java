@@ -30,7 +30,7 @@ public class MyRecyclerviewAdapter extends RecyclerView.Adapter<MyRecyclerviewAd
     @Override
     public void onBindViewHolder(@NonNull PagerViewHolder holder, int position) {
 
-        holder.mTextView.setText(String.format("第%d页,第%d项", page, position));
+        holder.mTextView.setText(String.format("第%s页,第%s项", page, position));
 
     }
 
