@@ -42,7 +42,7 @@ public class MyRecyclerview extends RecyclerView {
         int y = (int) ev.getY();
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                getParent().requestDisallowInterceptTouchEvent(true);
+                getParent().requestDisallowInterceptTouchEvent(true);//父布局拦截事件
                 break;
             case MotionEvent.ACTION_MOVE:
                 int offset = y - startY;
@@ -52,7 +52,7 @@ public class MyRecyclerview extends RecyclerView {
                 }
                 if (!canScrollVertically(-1) && offset > 0 &&
                         getScrollState() == SCROLL_STATE_IDLE) {//不可上滑且上滑,
-                    getParent().requestDisallowInterceptTouchEvent(false);
+                    getParent().requestDisallowInterceptTouchEvent(false);//父布局不拦截事件
                 }
                 break;
         }
